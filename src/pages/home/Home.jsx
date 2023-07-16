@@ -5,10 +5,16 @@ import { MdOutlineNotifications } from "react-icons/md";
 import SearchBar from "../../components/SearchBar";
 import axios from "axios"
 import Navbar from '../../components/Navbar';
+import Bell from "../../assests/bell.png"
 
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+   const [selectedSize, setSelectedSize] = useState(null);
+
+   const handleSizeSelection = (size) => {
+     setSelectedSize(size);
+   };
 
 
   useEffect(() => {
@@ -29,13 +35,49 @@ const Home = () => {
         </h1>
         <div className="flex items-center">
           <Link to="/cart">
-          <MdOutlineNotifications size={24} />
+            <img src={Bell} alt="bell" srcset="" />
           </Link>
         </div>
       </div>
       <SearchBar />
+      <div className="flex justify-center">
+            <div className="flex gap-5 mt-2">
+          <div
+            className={`border ${
+              selectedSize === "S" ? "text-white bg-black" : "bg-white"
+            } rounded-lg flex items-center justify-center py-2 px-4 cursor-pointer`}
+            onClick={() => handleSizeSelection("S")}
+          >
+            <span>All</span>
+          </div>
+          <div
+            className={`border ${
+              selectedSize === "M" ? "text-white bg-black" : "bg-white"
+            } rounded-lg flex items-center justify-center py-2 px-4 cursor-pointer`}
+            onClick={() => handleSizeSelection("M")}
+          >
+            <span>Men</span>
+          </div>
+          <div
+            className={`border ${
+              selectedSize === "L" ? "text-white bg-black" : "bg-white"
+            } rounded-lg flex items-center justify-center py-2 px-4 cursor-pointer`}
+            onClick={() => handleSizeSelection("L")}
+          >
+            <span>Women</span>
+          </div>
+          <div
+            className={`border ${
+              selectedSize === "L" ? "text-white bg-black" : "bg-white"
+            } rounded-lg flex items-center justify-center py-2 px-4 cursor-pointer`}
+            onClick={() => handleSizeSelection("L")}
+          >
+            <span>Kids</span>
+          </div>
+        </div>
+      </div>
       <ProductList products={products} loading={loading} />
-      <Navbar/>
+      <Navbar />
     </div>
   );
 };

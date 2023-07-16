@@ -5,11 +5,12 @@ import {
   updateQuantity,
 } from "../../redux/cartSlice/cartSlice";
 import { Link } from "react-router-dom";
-import { MdOutlineNotifications } from "react-icons/md";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { BsTrash3 } from "react-icons/bs";
 import { BsArrowRight } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
+import Bell from "../../assests/bell.png";
+
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -30,7 +31,7 @@ const Cart = () => {
     cartItems.forEach((item) => {
       totalPrice += item.price * item.quantity;
     });
-    return totalPrice;
+    return Math.floor(totalPrice);
   };
 
   return (
@@ -46,7 +47,9 @@ const Cart = () => {
         </h1>
         <div className="flex items-center">
           <Link to="/cart">
-            <MdOutlineNotifications size={24} />
+            {/* <MdOutlineNotifications size={24} />
+             */}
+            <img src={Bell} alt="bell" srcset="" />
           </Link>
         </div>
       </div>
@@ -132,10 +135,18 @@ const Cart = () => {
           </div>
         </div>
       )}
+
       {cartItems.length === 0 ? (
         <div></div>
       ) : (
         <div className="mt-12">
+            <div>
+              <input
+                type="text"
+                placeholder="Add a voucher"
+                className="flex-grow px-5 py-3 rounded w-full outline-none bg-gray-100"
+              />
+            </div>
           <div className="mt-4 flex justify-between items-center">
             <p className="text-gray-500">Sub-total</p>
             <p className="font-semibold">INR {getTotalPrice().toFixed(2)}</p>
@@ -152,7 +163,7 @@ const Cart = () => {
           <div className="mt-4 flex justify-between items-center">
             <p className="font-semibold">Total</p>
             <p className="font-semibold">
-              INR {getTotalPrice() + shipping.toFixed(2)}
+              INR {getTotalPrice() + Number(shipping.toFixed(2))}
             </p>
           </div>
         </div>

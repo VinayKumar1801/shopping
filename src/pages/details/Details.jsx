@@ -8,10 +8,9 @@ import { MdOutlineNotifications } from "react-icons/md";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { AiFillStar } from "react-icons/ai";
 import { BsHeart } from "react-icons/bs";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Bell from "../../assests/bell.png";
+import Bag from "../../assests/bag.png";
 
-toast.configure();
 
 const Details = () => {
   const { id } = useParams();
@@ -50,16 +49,10 @@ const Details = () => {
         size: selectedSize,
       };
       dispatch(addToCart(productWithSize));
-      showSuccessAlert();
     }
   };
 
-  const showSuccessAlert = () => {
-    toast.success("Item added to cart", {
-      position: toast.POSITION.TOP_CENTER,
-      autoClose: 2000,
-    });
-  };
+ 
 
   return (
     <div className="bg-white">
@@ -78,7 +71,8 @@ const Details = () => {
             </h1>
             <div className="flex items-center">
               <Link to="/cart">
-                <MdOutlineNotifications size={24} />
+                {/* <MdOutlineNotifications size={24} /> */}
+                <img src={Bell} alt="bell" srcset="" />
               </Link>
             </div>
           </div>
@@ -157,17 +151,20 @@ const Details = () => {
                 <p>Price</p>
                 <p className="text-lg text-gray-900">INR {product.price}</p>
               </div>
-              <button
-                onClick={handleAddToCart}
-                disabled={!selectedSize}
-                className={`inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white ${
-                  selectedSize
-                    ? "bg-black hover:bg-gray-800"
-                    : "bg-gray-300 cursor-not-allowed"
-                } focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2`}
-              >
-                <span>Add to Cart</span>
-              </button>
+              <Link to="/cart">
+                <button
+                  onClick={handleAddToCart}
+                  disabled={!selectedSize}
+                  className={`inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white ${
+                    selectedSize
+                      ? "bg-black hover:bg-gray-800"
+                      : "bg-gray-300 cursor-not-allowed"
+                  } focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2`}
+                >
+                  <img src={Bag} alt="bag" srcset="" />
+                  <span className="ml-2"> Add to Cart</span>
+                </button>
+              </Link>
             </div>
           </div>
         </div>
