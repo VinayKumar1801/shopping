@@ -44,33 +44,33 @@ const Home = () => {
             <div className="flex gap-5 mt-2">
           <div
             className={`border ${
-              selectedSize === "S" ? "text-white bg-black" : "bg-white"
+              selectedSize === "all" ? "text-white bg-black" : "bg-white"
             } rounded-lg flex items-center justify-center py-2 px-4 cursor-pointer`}
-            onClick={() => handleSizeSelection("S")}
+            onClick={() => handleSizeSelection("all")}
           >
             <span>All</span>
           </div>
           <div
             className={`border ${
-              selectedSize === "M" ? "text-white bg-black" : "bg-white"
+              selectedSize === "men" ? "text-white bg-black" : "bg-white"
             } rounded-lg flex items-center justify-center py-2 px-4 cursor-pointer`}
-            onClick={() => handleSizeSelection("M")}
+            onClick={() => handleSizeSelection("men")}
           >
             <span>Men</span>
           </div>
           <div
             className={`border ${
-              selectedSize === "L" ? "text-white bg-black" : "bg-white"
+              selectedSize === "women" ? "text-white bg-black" : "bg-white"
             } rounded-lg flex items-center justify-center py-2 px-4 cursor-pointer`}
-            onClick={() => handleSizeSelection("L")}
+            onClick={() => handleSizeSelection("women")}
           >
             <span>Women</span>
           </div>
           <div
             className={`border ${
-              selectedSize === "L" ? "text-white bg-black" : "bg-white"
+              selectedSize === "kids" ? "text-white bg-black" : "bg-white"
             } rounded-lg flex items-center justify-center py-2 px-4 cursor-pointer`}
-            onClick={() => handleSizeSelection("L")}
+            onClick={() => handleSizeSelection("kids")}
           >
             <span>Kids</span>
           </div>
