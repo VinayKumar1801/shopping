@@ -10,6 +10,7 @@ import { BsTrash3 } from "react-icons/bs";
 import { BsArrowRight } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
 import Bell from "../../assests/bell.png";
+import CheckOut from "../../components/CheckOut";
 
 
 const Cart = () => {
@@ -35,7 +36,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="p-4 border border-gray-200 rounded shadow">
+    <div className="p-4 border border-gray-200 rounded shadow container mx-auto ">
       <div className="flex justify-between items-center px-4 py-2 bg-white">
         <Link to="/">
           <div className="flex items-center">
@@ -139,14 +140,14 @@ const Cart = () => {
       {cartItems.length === 0 ? (
         <div></div>
       ) : (
-        <div className="mt-12">
-            <div>
-              <input
-                type="text"
-                placeholder="Add a voucher"
-                className="flex-grow px-5 py-3 rounded w-full outline-none bg-gray-100"
-              />
-            </div>
+        <div className="mx-auto max-w-2xl mx-4 my-9 px-4 py-8 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
+          <div>
+            <input
+              type="text"
+              placeholder="Add a voucher"
+              className="flex-grow px-5 py-3 rounded w-full outline-none bg-gray-100"
+            />
+          </div>
           <div className="mt-4 flex justify-between items-center">
             <p className="text-gray-500">Sub-total</p>
             <p className="font-semibold">INR {getTotalPrice().toFixed(2)}</p>
@@ -168,7 +169,9 @@ const Cart = () => {
           </div>
         </div>
       )}
-      {cartItems.length === 0 ? (
+
+      <CheckOut cartItems={cartItems} />
+      {/* {cartItems.length === 0 ? (
         <div className="fixed bottom-0 left-0 right-0 bg-white p-4 flex justify-center items-center border">
           <Link to="/">
             <button className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
@@ -191,7 +194,7 @@ const Cart = () => {
             </span>
           </button>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
