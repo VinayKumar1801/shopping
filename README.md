@@ -27,7 +27,6 @@ This is a simple shopping cart application built with React and Redux. It allows
 ## Acknowledgments
 - Fake Store API for providing the product data
 - React Icons for the icon components
-- React Toastify for the toast notifications
 
 ## Installation
 1. Clone the repository:
