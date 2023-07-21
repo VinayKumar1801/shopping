@@ -4,6 +4,8 @@ This is a simple shopping cart application built with React and Redux. It allows
 
 [![Screenshot-2023-07-17-164025.jpg](https://i.postimg.cc/6QBmn0wr/Screenshot-2023-07-17-164025.jpg)](https://postimg.cc/HrPzCbrn)
 
+## Video Link - https://drive.google.com/file/d/1g5JAst_dqWH4uD4DK49d6C5rJWiT1oXN/view?usp=sharing
+
 ## Features
 - Browse and view product details
 - Add products to the cart with the selected size
